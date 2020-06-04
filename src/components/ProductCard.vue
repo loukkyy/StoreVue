@@ -1,7 +1,8 @@
 <template>
   <div class="card">
       <div class="image">
-        <img v-if="product.image" :src="require(`@/assets/images/${product.image}`)" alt="" />
+        <!-- <img v-if="product.image" :src="require(`@/assets/images/${product.image}`)" alt="" /> -->
+        <img v-if="product.image" :src="`/static/images/${product.image}`" alt="" />
         <img v-else src="" alt="" />
       </div>
       <div class="description">
