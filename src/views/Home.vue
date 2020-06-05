@@ -14,7 +14,14 @@
         stroke-width="3"
       />
     </svg>
-    <h1 class="title">Store Vue</h1>
+    <!-- <span class="anim-to-right"><h1 class="title anim-to-right">Store </h1></span>
+    <span class="anim-to-left"><h1 class="title anim-to-left">Vue</h1></span> -->
+    <div class="title">
+      <h1 class="anim-to-right">Store </h1>
+      <h1 class="anim-to-left">Vue</h1>
+
+    </div>
+    <!-- <h1 class="title">Store Vue</h1> -->
   </div>
 </template>
 
@@ -28,11 +35,19 @@ export default {
 <style scoped>
 
 .home {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .title {
+  display: flex;
+}
+.title h1 {
   font-family: 'Satisfy';
   font-size: 8rem;
+  display: inline;
+  margin: 1rem;
 }
 #logo {
   animation: fill-animation 1s ease forwards 3s;
@@ -54,6 +69,19 @@ export default {
   }
   to {
     fill: black;
+  }
+}
+.anim-to-right {
+  transform: translateX(-100vw);
+  animation: linear-anim 1s ease forwards 2.9s;
+}
+.anim-to-left {
+  transform: translateX(+100vw);
+  animation: linear-anim 1s ease forwards 2.9s;
+}
+@keyframes linear-anim {
+  to {
+    transform: translateY(0);
   }
 }
 </style>
