@@ -12,16 +12,13 @@
         d="M258.37 403.558C237.288 379.465 207.172 364.407 171.032 367.419C168.021 361.395 155.974 301.163 155.974 301.163C155.974 301.163 198.137 237.919 207.172 225.872C252.346 153.593 255.358 96.3721 228.253 39.1512C219.218 18.0698 195.125 0 171.032 0C152.963 0 137.905 15.0581 128.87 33.1279C98.7533 84.3256 98.7534 180.698 113.811 246.953C113.811 246.953 98.7534 262.012 83.6952 280.081C53.5789 313.209 20.451 349.349 8.40451 397.535C-6.65363 451.744 5.39288 502.942 38.5208 542.093C74.6603 587.267 128.87 608.349 195.125 602.326C207.172 659.546 216.207 695.686 198.137 728.814C192.114 740.86 180.067 752.907 158.986 752.907C152.963 752.907 149.951 752.907 143.928 749.895C161.998 740.86 177.056 722.791 177.056 701.709C177.056 671.593 152.963 647.5 122.846 647.5C71.6487 650.512 68.6371 701.709 68.6371 701.709C68.6371 719.779 74.6603 737.849 86.7068 749.895C101.765 764.953 125.858 777 152.963 777C186.091 777 219.218 764.954 231.265 716.767C243.311 677.616 222.23 614.372 219.218 593.291C252.346 578.233 282.463 533.058 285.474 502.942C291.498 469.814 279.451 430.663 258.37 403.558ZM161.998 69.2674C165.009 63.2442 171.032 60.2326 177.056 60.2326C180.067 60.2326 186.091 63.2442 189.102 66.2558C201.149 72.2791 204.16 84.3256 204.16 102.395C201.149 147.57 161.998 201.779 140.916 219.849C131.881 177.686 137.905 99.3837 161.998 69.2674ZM74.6603 542.093C53.579 521.012 44.5441 490.895 47.5557 460.779C53.5789 412.593 86.7068 373.442 113.811 343.326C119.835 337.302 125.858 331.279 128.87 325.256C131.881 340.314 140.916 364.407 143.928 376.453C107.788 391.512 86.7069 439.698 89.7185 478.849C89.7185 496.919 95.7417 508.965 104.777 521.012C107.788 524.023 110.8 527.035 113.811 527.035C116.823 527.035 122.846 524.023 122.846 521.012C125.858 518 125.858 511.977 122.846 508.965C119.835 505.953 119.835 502.942 119.835 496.919C116.823 469.814 134.893 448.733 155.974 439.698C158.986 457.767 180.067 551.128 183.079 572.209C143.928 584.256 101.765 572.209 74.6603 542.093ZM210.184 560.163C204.16 539.081 201.149 514.988 195.125 487.884C192.114 469.814 189.102 448.733 183.079 430.663C222.23 430.663 234.277 463.791 237.288 475.837C246.323 508.965 237.288 542.093 210.184 560.163Z"
         stroke="black"
         stroke-width="3"
+        stroke-linecap="round"
       />
     </svg>
-    <!-- <span class="anim-to-right"><h1 class="title anim-to-right">Store </h1></span>
-    <span class="anim-to-left"><h1 class="title anim-to-left">Vue</h1></span> -->
     <div class="title">
-      <h1 class="anim-to-right">Store </h1>
-      <h1 class="anim-to-left">Vue</h1>
-
+      <h1 class="slide-in-left">Store</h1>
+      <h1 class="slide-in-right">Vue</h1>
     </div>
-    <!-- <h1 class="title">Store Vue</h1> -->
   </div>
 </template>
 
@@ -33,7 +30,6 @@ export default {
 </script>
 
 <style scoped>
-
 .home {
   display: flex;
   flex-direction: column;
@@ -44,14 +40,17 @@ export default {
   display: flex;
 }
 .title h1 {
-  font-family: 'Satisfy';
-  font-size: 8rem;
+  font-family: "Satisfy";
+  font-size: 4em;
   display: inline;
   margin: 1rem;
 }
 #logo {
   animation: fill-animation 1s ease forwards 3s;
+  margin: 1rem;
   padding: 1rem;
+  height: 40vh;
+  overflow: visible;
 }
 #logo path {
   stroke-dasharray: 2400px;
@@ -71,17 +70,30 @@ export default {
     fill: black;
   }
 }
-.anim-to-right {
-  transform: translateX(-100vw);
-  animation: linear-anim 1s ease forwards 2.9s;
+.slide-in-left {
+  animation: slide-in-left 1s cubic-bezier(0.215, 0.61, 0.355, 1) both 2.9s;
 }
-.anim-to-left {
-  transform: translateX(+100vw);
-  animation: linear-anim 1s ease forwards 2.9s;
+.slide-in-right {
+  animation: slide-in-right 1s cubic-bezier(0.215, 0.61, 0.355, 1) both 2.9s;
 }
-@keyframes linear-anim {
-  to {
-    transform: translateY(0);
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 </style>

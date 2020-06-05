@@ -49,6 +49,6 @@ export default {};
   margin: .8rem;
 }
 .cart-icon {
-    margin: 2rem;
+    margin: 2rem 1rem;
 }
 </style>

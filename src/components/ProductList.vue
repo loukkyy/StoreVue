@@ -51,7 +51,7 @@ export default {
 <style scoped>
 .product-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   align-items: stretch;
   grid-auto-rows: minmax(200px);
   grid-auto-flow: dense;
@@ -62,18 +62,21 @@ export default {
   margin: 2rem;
 }
 .product-item {
-  max-width: 100%;
+  /* max-width: 100%; */
   border-color: white;
   color: #eee;
 }
 .product-item .card {
   height: 100%;
 }
-.tall {
-  grid-row: span 2;
-}
-.wide {
-  grid-column: span 2;
+/* For large screens only */
+@media (min-width: 650px) {
+  .tall {
+    grid-row: span 2;
+  }
+  .wide {
+    grid-column: span 2;
+  }
 }
 a {
   color: black;

@@ -55,23 +55,22 @@ export default {
 .product-box {
   padding: 1rem;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: 1fr 2fr;
   grid-template-areas:
     "image lateral-panel"
-    "description lateral-panel";
+    "description description";
 }
 .image {
-  min-height: 50px;
   text-align: center;
   grid-area: image;
 }
 .image img {
-  max-height: 40rem;
+  width: 100%;
 }
 .description {
   grid-area: description;
-  padding: 5rem;
+  padding: 1rem;
 }
 .lateral-panel {
   grid-area: lateral-panel;
