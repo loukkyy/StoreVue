@@ -11,7 +11,12 @@
         <br />
         <p><strong>Price:</strong> {{ product.price }}€</p>
         <br />
-        <p><strong>Description:</strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam obcaecati modi, quas itaque incidunt libero magnam, mollitia vitae dolorum in placeat quibusdam! Molestiae laboriosam possimus tenetur placeat mollitia sapiente nam!</p>
+        <p>
+          <strong>Description:</strong> Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Aliquam obcaecati modi, quas itaque incidunt libero
+          magnam, mollitia vitae dolorum in placeat quibusdam! Molestiae
+          laboriosam possimus tenetur placeat mollitia sapiente nam!
+        </p>
         <br />
         <p><strong>Rating:</strong> {{ product.rating }}/5</p>
         <br />
@@ -19,35 +24,41 @@
         <span v-else>Out of stock</span>
       </div>
       <div class="lateral-panel">
-        <button class="btn" @click="addToCart()" :disabled="!(product.qt > 0)">Add to cart</button>
-        <button class="btn" @click="$router.push({path:`${product.id}/edit`})">Edit product</button>
-        <router-view class="edit-box"/>
+        <button class="btn" @click="addToCart()" :disabled="!(product.qt > 0)">
+          Add to cart
+        </button>
+        <button
+          class="btn"
+          @click="$router.push({ path: `${product.id}/edit` })"
+        >
+          Edit product
+        </button>
+        <router-view class="edit-box" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data() {
     return {
-      product: '',
+      product: ""
     };
   },
   methods: {
-      addToCart() {
-          this.product.qt--;
-      }
+    addToCart() {
+      this.product.qt--;
+    }
   },
   mounted: function() {
-    axios.get('/static/data.json')
-    .then((response) =>{
+    axios.get("/static/data.json").then(response => {
       this.product = response.data.filter(
-          data => data.id == this.$route.params.id)[0]
-      ;
+        data => data.id == this.$route.params.id
+      )[0];
     });
-  },
+  }
 };
 </script>
 
@@ -79,23 +90,22 @@ export default {
   flex-direction: column;
 }
 .btn {
-    border: 2px solid hsl(267, 73%, 3%);
-    border-radius: .8rem;
-    background-color: transparent;
-    color: hsl(267, 73%, 3%);
-    margin: 1rem;
+  border: 2px solid hsl(267, 73%, 3%);
+  border-radius: 0.8rem;
+  background-color: transparent;
+  color: hsl(267, 73%, 3%);
+  margin: 1rem;
 }
 .btn:hover {
-    border-color: hsl(267, 73%, 50%);
-    color: hsl(267, 73%, 50%);
-    
+  border-color: hsl(267, 73%, 50%);
+  color: hsl(267, 73%, 50%);
 }
 .edit-box {
-    border: 1px solid hsl(267, 73%, 3%);
-    border-radius: .8rem;
-    padding: 1rem;
-    margin: 1rem;
-    text-align: center;
-    flex: 1;
+  border: 1px solid hsl(267, 73%, 3%);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  flex: 1;
 }
 </style>

@@ -1,23 +1,21 @@
 <template>
-    <div class="title">
-        <h1>404</h1>
-        <p>Are you lost?</p>
-    </div>
+  <div class="title">
+    <h1>404</h1>
+    <p>Are you lost?</p>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {};
 </script>
 
 <style scoped>
 .title {
-    font-family: 'Satisfy';
-    font-size: 6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  font-family: "Satisfy";
+  font-size: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

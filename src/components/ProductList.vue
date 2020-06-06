@@ -1,33 +1,39 @@
 <template>
   <div class="product-container">
-      <!-- :to="{path:`/products/${product.id}`, query: { productItem: product }}" -->
+    <!-- :to="{path:`/products/${product.id}`, query: { productItem: product }}" -->
     <router-link
       v-for="product in products"
       :key="product.id"
-      :to="{name: 'ProductDetail', params: {id: product.id}}"
+      :to="{ name: 'ProductDetail', params: { id: product.id } }"
       :class="[product.displayClass, productItemClass]"
       :query="product"
     >
       <ProductCard :product="product" />
       <!-- click.prevent to avoid default behaviour of router-link -->
-      <button @click.prevent="addToCart(product)" class="btn" :disabled="!(product.qt > 0)">Add to cart</button>
+      <button
+        @click.prevent="addToCart(product)"
+        class="btn"
+        :disabled="!(product.qt > 0)"
+      >
+        Add to cart
+      </button>
     </router-link>
   </div>
 </template>
 
 <script>
 import ProductCard from "@/components/ProductCard.vue";
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "ProductList",
   components: {
-    ProductCard,
+    ProductCard
   },
   data() {
     return {
       cartItems: [],
       products: [],
-      productItemClass: "product-item",
+      productItemClass: "product-item"
     };
   },
   methods: {
@@ -36,11 +42,10 @@ export default {
       this.cartItems.push(product);
       console.log("item added to cart");
       console.log(this.cartItems);
-    },
+    }
   },
   mounted: function() {
-    axios.get('/static/data.json')
-    .then((response) => {
+    axios.get("/static/data.json").then(response => {
       this.products = response.data;
       console.log(this.products[0]);
     });
@@ -58,7 +63,7 @@ export default {
   gap: 10px;
   padding: 10px;
   background-color: hsl(198, 66%, 58%);
-  box-shadow: 0 0 1rem 1rem hsl(198, 66%, 52%);;
+  box-shadow: 0 0 1rem 1rem hsl(198, 66%, 52%);
   margin: 2rem;
 }
 .product-item {
@@ -87,6 +92,6 @@ a {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 </style>

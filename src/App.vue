@@ -14,13 +14,13 @@ export default {
   name: "App",
   components: {
     Header,
-    Footer,
-  },
+    Footer
+  }
 };
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Satisfy');
+@import url("https://fonts.googleapis.com/css?family=Satisfy");
 
 * {
   margin: 0;
@@ -71,7 +71,7 @@ export default {
   cursor: not-allowed;
 }
 .title-route {
-  font-family: 'Satisfy';
+  font-family: "Satisfy";
   text-align: center;
   margin: 1rem;
 }

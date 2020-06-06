@@ -1,12 +1,14 @@
 <template>
   <Header>
     <div id="nav">
-      <img src="@/assets/logo.svg" alt="logo.svg" class="logo">
+      <img src="@/assets/logo.svg" alt="logo.svg" class="logo" />
       <div id="nav-links">
         <router-link to="/">Home</router-link>
         <router-link to="/products">Products</router-link>
       </div>
-      <router-link to="/cart"><img src="@/assets/cart_icon.svg" alt="cart-icon" class="cart-icon" /></router-link>
+      <router-link to="/cart"
+        ><img src="@/assets/cart_icon.svg" alt="cart-icon" class="cart-icon"
+      /></router-link>
     </div>
   </Header>
 </template>
@@ -29,7 +31,7 @@ export default {};
   font-weight: bold;
   color: hsl(267, 73%, 60%);
   text-decoration: none;
-  padding: 2rem .8rem;
+  padding: 2rem 0.8rem;
 }
 #nav-links a:hover {
   background-color: hsl(267, 73%, 60%);
@@ -46,9 +48,9 @@ export default {};
 }
 .logo {
   height: 4rem;
-  margin: .8rem;
+  margin: 0.8rem;
 }
 .cart-icon {
-    margin: 2rem 1rem;
+  margin: 2rem 1rem;
 }
 </style>

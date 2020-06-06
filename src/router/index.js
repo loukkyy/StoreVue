@@ -20,13 +20,16 @@ const routes = [
     path: "/products/:id",
     name: "ProductDetail",
     component: () =>
-    import(/* webpackChunkName: "productdetail" */ "../views/ProductDetail.vue"),
+      import(
+        /* webpackChunkName: "productdetail" */ "../views/ProductDetail.vue"
+      ),
     children: [
       {
-        path: 'edit',
+        path: "edit",
         component: () =>
-        import(/* webpackChunkName: "productedit" */ "../views/ProductEdit.vue")
-        
+          import(
+            /* webpackChunkName: "productedit" */ "../views/ProductEdit.vue"
+          )
       }
     ],
     props: true
@@ -34,15 +37,13 @@ const routes = [
   {
     path: "/cart",
     name: "Cart",
-    component: () =>
-      import(/* webpackChunkName: "cart" */ "../views/Cart.vue")
+    component: () => import(/* webpackChunkName: "cart" */ "../views/Cart.vue")
   },
   {
     path: "*",
     name: "404",
-    component: () =>
-      import(/* webpackChunkName: "404" */ "../views/_404.vue")
-  },
+    component: () => import(/* webpackChunkName: "404" */ "../views/_404.vue")
+  }
 ];
 
 const router = new VueRouter({
