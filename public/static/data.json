@@ -7,7 +7,7 @@
        "price":99,
        "rating":4.3,
        "displayClass":"normal",
-       "image":"accordion_1.png"
+       "image":"/images/accordion_1.png"
     },
     {
        "id":2,
@@ -17,7 +17,7 @@
        "price":49,
        "rating":4.3,
        "displayClass":"normal",
-       "image":"accordion_2.png"
+       "image":"/images/accordion_2.png"
     },
     {
        "id":3,
@@ -27,7 +27,7 @@
        "price":99,
        "rating":2.1,
        "displayClass":"wide",
-       "image":"acoustic_guitar.png"
+       "image":"/images/acoustic_guitar.png"
     },
     {
        "id":4,
@@ -37,7 +37,7 @@
        "price":99,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"cassette.png"
+       "image":"/images/cassette.png"
     },
     {
        "id":5,
@@ -46,7 +46,7 @@
        "price":99,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"drum.png"
+       "image":"/images/drum.png"
     },
     {
        "id":6,
@@ -56,7 +56,7 @@
        "price":149,
        "rating":3.4,
        "displayClass":"wide tall",
-       "image":"electric_guitar_1.png"
+       "image":"/images/electric_guitar_1.png"
     },
     {
        "id":7,
@@ -66,7 +66,7 @@
        "price":99,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"electric_guitar_2.png"
+       "image":"/images/electric_guitar_2.png"
     },
     {
        "id":8,
@@ -76,7 +76,7 @@
        "price":249,
        "rating":3.4,
        "displayClass":"wide",
-       "image":"electric_guitar_3.png"
+       "image":"/images/electric_guitar_3.png"
     },
     {
        "id":9,
@@ -86,7 +86,7 @@
        "price":99,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"electric_guitar_4.png"
+       "image":"/images/electric_guitar_4.png"
     },
     {
        "id":10,
@@ -96,7 +96,7 @@
        "price":349,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"electric_guitar_5.png"
+       "image":"/images/electric_guitar_5.png"
     },
     {
        "id":11,
@@ -106,7 +106,7 @@
        "price":119,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"microphone.png"
+       "image":"/images/microphone.png"
     },
     {
        "id":12,
@@ -116,7 +116,7 @@
        "price":299,
        "rating":3.4,
        "displayClass":"wide",
-       "image":"sitar.png"
+       "image":"/images/sitar.png"
     },
     {
        "id":13,
@@ -126,7 +126,7 @@
        "price":4990,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"piano_1.png"
+       "image":"/images/piano_1.png"
     },
     {
        "id":14,
@@ -136,7 +136,7 @@
        "price":1200,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"violin.png"
+       "image":"/images/violin.png"
     },
     {
        "id":15,
@@ -146,7 +146,7 @@
        "price":9900,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"piano_2.png"
+       "image":"/images/piano_2.png"
     },
     {
        "id":16,
@@ -156,6 +156,6 @@
        "price":749,
        "rating":3.4,
        "displayClass":"normal",
-       "image":"saxophone.png"
+       "image":"/images/saxophone.png"
     }
  ]

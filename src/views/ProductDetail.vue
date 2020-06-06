@@ -3,8 +3,7 @@
     <h1 class="title-route">Product Info</h1>
     <div class="product-box">
       <div class="image">
-        <!-- <img :src="require(`@/static/images/${product.image}`)" alt="" /> -->
-        <img :src="`/static/images/${product.image}`" alt="" />
+        <img :src="product.image" alt="" />
       </div>
       <div class="description">
         <h2>{{ product.name }}</h2>
@@ -67,17 +66,19 @@ export default {
   padding: 1rem;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 40vh auto;
   grid-template-areas:
     "image lateral-panel"
     "description description";
 }
 .image {
-  text-align: center;
   grid-area: image;
+  text-align: center;
+
 }
 .image img {
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 .description {
   grid-area: description;

@@ -62,17 +62,24 @@ export default {
   grid-auto-flow: dense;
   gap: 10px;
   padding: 10px;
-  background-color: hsl(198, 66%, 58%);
-  box-shadow: 0 0 1rem 1rem hsl(198, 66%, 52%);
   margin: 2rem;
 }
 .product-item {
-  /* max-width: 100%; */
-  border-color: white;
   color: #eee;
+  box-shadow: 0 0 2px 1px hsl(198, 66%, 52%);
+}
+.product-item:hover {
+  animation: card-pop-up 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes card-pop-up {
+  to {
+  background-color: hsl(198, 66%, 63%);
+  box-shadow: 0 0 1rem 5px hsl(198, 66%, 52%);
+  }
 }
 .product-item .card {
   height: 100%;
+  border: none;
 }
 /* For large screens only */
 @media (min-width: 650px) {
