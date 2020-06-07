@@ -52,22 +52,23 @@ export default {
   grid-area: footer;
 }
 .btn {
-  background-color: hsl(0, 0%, 90%);
-  color: black;
-  padding: 0.25em 1em;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  font-size: inherit;
-  border-radius: 0.2em;
-  outline: none;
+  border: 2px solid #eee;
+  border-radius: 0.8rem;
+  background-color: transparent;
+  color: #eee;
+  margin: 0.4rem;
 }
-.btn:focus,
-.btn:hover {
-  background-color: hsl(0, 0%, 70%);
+.btn:hover, .btn:focus {
+  border-color: hsl(198, 66%, 52%);
+  color: hsl(198, 66%, 52%);
+  background-color: #eee;
+  font-weight: bold;
 }
 .btn:disabled {
-  background-color: hsl(0, 0%, 40%);
+  border-color: hsl(198, 66%, 72%);
+  color: hsl(198, 66%, 72%);
+  background-color: transparent;
+  font-weight: normal;
   cursor: not-allowed;
 }
 .title-route {

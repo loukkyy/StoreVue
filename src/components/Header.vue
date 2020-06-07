@@ -6,15 +6,44 @@
         <router-link to="/">Home</router-link>
         <router-link to="/products">Products</router-link>
       </div>
-      <router-link to="/cart"
-        ><img src="@/assets/cart_icon.svg" alt="cart-icon" class="cart-icon"
-      /></router-link>
+      <!-- <router-link to="/cart"
+        class="cart-icon">
+          <img src="@/assets/cart_icon.svg" alt="cart-icon" />
+        </router-link> -->
+        <div class="cart-container">
+        <button @click="showCart = !showCart" class="btn cart-btn">
+          <font-awesome-icon icon="shopping-cart" />
+      </button>
+      
+      <Cart v-if="showCart" class="cart-pop-up"/>
+        </div>
     </div>
   </Header>
 </template>
 
 <script>
-export default {};
+import Cart from "@/components/Cart.vue";
+import { mapGetters } from "vuex";
+export default {
+  components: {
+    Cart,
+  },
+  data() {
+    return {
+      showCart: false
+    }
+  },
+  methods: {
+    goToCart() {
+      // this.$router.pus
+    }
+  },
+  computed: {
+    ...mapGetters("cart", {
+      cartProducts: "getProducts"
+    }),
+  }
+};
 </script>
 
 <style scoped>
@@ -50,7 +79,26 @@ export default {};
   height: 4rem;
   margin: 0.8rem;
 }
+.cart-container {
+  position: relative;
+}
 .cart-icon {
   margin: 2rem 1rem;
+}
+.cart-btn {
+  color: white;
+  font-size: 1.5rem;
+  background-color: transparent;
+}
+.cart-btn:hover, .cart-btn:focus {
+  color: rgb(190, 190, 190);
+  background-color: transparent;
+}
+.cart-pop-up {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  z-index: 1;
+  margin-right: 0.5rem;
 }
 </style>

@@ -23,12 +23,12 @@
         <span v-else>Out of stock</span>
       </div>
       <div class="lateral-panel">
-        <button class="btn" @click="addToCart()" :disabled="!(product.qt > 0)">
+        <button class="btn" @click="addToCart(product)" :disabled="!(product.qt > 0)">
           Add to cart
         </button>
         <button
           class="btn"
-          @click="$router.push({ path: `${product.id}/edit` })"
+          @click="edit"
         >
           Edit product
         </button>
@@ -39,25 +39,30 @@
 </template>
 
 <script>
-import axios from "axios";
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      product: ""
+      // product: ""
     };
   },
   methods: {
-    addToCart() {
-      this.product.qt--;
+    ...mapActions("cart", {
+      addToCart: "addProduct",
+    }),
+    edit() {
+      this.$router.push({ path: `${this.product.id}/edit` });
     }
   },
-  mounted: function() {
-    axios.get("/static/data.json").then(response => {
-      this.product = response.data.filter(
-        data => data.id == this.$route.params.id
-      )[0];
-    });
-  }
+  computed: {
+    product() {
+      return this.$store.getters.products[this.$route.params.id - 1];
+    },
+  },
+  mounted() {
+    // component should fetch latest state in prod
+    // this.$store.dispatch("fetchOneProduct", this.$route.params.id);
+  },
 };
 </script>
 
@@ -74,7 +79,6 @@ export default {
 .image {
   grid-area: image;
   text-align: center;
-
 }
 .image img {
   max-height: 100%;
@@ -89,17 +93,6 @@ export default {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-}
-.btn {
-  border: 2px solid hsl(267, 73%, 3%);
-  border-radius: 0.8rem;
-  background-color: transparent;
-  color: hsl(267, 73%, 3%);
-  margin: 1rem;
-}
-.btn:hover {
-  border-color: hsl(267, 73%, 50%);
-  color: hsl(267, 73%, 50%);
 }
 .edit-box {
   border: 1px solid hsl(267, 73%, 3%);

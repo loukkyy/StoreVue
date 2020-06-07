@@ -1,27 +1,32 @@
 <template>
   <div class="card">
     <div class="image">
-      <img
+      <!-- <img
         v-if="product.image"
         :src="product.image"
         alt=""
-      />
+      /> -->
+      <slot name="image"></slot>
     </div>
     <div class="description">
-      <p>{{ product.price }}€</p>
+      <slot name="description"></slot>
+      <!-- <p>{{ product.price }}€</p>
       <h3>{{ product.name }}</h3>
       <p>{{ product.description }}</p>
       <span v-if="product.qt">Only {{ product.qt }} left!</span>
-      <span v-else>Out of stock</span>
+      <span v-else>Out of stock</span> -->
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ProductCard",
+  name: 'ProductCard',
   props: {
-    product: Object
+    // product: {
+    //   type: Object,
+    //   required: true
+    // }
   }
 };
 </script>
@@ -29,8 +34,7 @@ export default {
 <style scoped>
 .card {
   border: 2px solid hsl(0, 0%, 50%);
-  /* border-radius: 0.8em; */
-  padding: 2rem;
+  padding: 0.8rem;
   position: relative;
   display: flex;
   flex-direction: column;
