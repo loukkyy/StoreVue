@@ -1,16 +1,20 @@
 <template>
   <div>
-    <div v-if="!cartIsEmpty">
-      <span class="totalPrice">Total {{ totalPrice }}€</span>
-      <ul class="cart-list">
-        <li v-for="item in cartItems" :key="item.id" class="cart-item">
-          <CartItem :itemId="item.id" :itemQuantity="item.quantity" />
-        </li>
-      </ul>
-    </div>
-    <div v-else>
-      <p>Your cart is empty</p>
-    </div>
+    <transition name="component-fade" mode="out-in">
+      <div v-if="!cartIsEmpty" key="cartNotEmpty">
+        <span class="totalPrice">Total {{ totalPrice }}€</span>
+        <ul class="cart-list">
+          <transition-group name="list">
+            <li v-for="item in cartItems" :key="item.id" class="cart-item">
+              <CartItem :itemId="item.id" :itemQuantity="item.quantity" />
+            </li>
+          </transition-group>
+        </ul>
+      </div>
+      <div v-else key="cartEmpty">
+        <p>Your cart is empty</p>
+      </div>
+    </transition>
   </div>
 </template>
 

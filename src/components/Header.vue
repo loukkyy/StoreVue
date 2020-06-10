@@ -6,14 +6,15 @@
         <router-link to="/">Home</router-link>
         <router-link to="/products">Products</router-link>
       </div>
-        <div class="cart-container">
+      <div class="cart-container">
         <button @click="showCart = !showCart" class="btn cart-btn">
           <font-awesome-icon icon="shopping-cart" />
           <span class="item-count-badge">{{ itemsInCartCount }}</span>
-      </button>
-      
-      <Cart v-if="showCart" class="cart-pop-up"/>
-        </div>
+        </button>
+        <transition name="fade">
+          <Cart v-if="showCart" class="cart-pop-up" />
+        </transition>
+      </div>
     </div>
   </Header>
 </template>
@@ -27,20 +28,20 @@ export default {
   },
   data() {
     return {
-      showCart: false
-    }
+      showCart: false,
+    };
   },
   methods: {
     goToCart() {
       // this.$router.pus
-    }
+    },
   },
   computed: {
     ...mapGetters("cart", {
       cartProducts: "getProducts",
-      itemsInCartCount: "getItemsCount"
+      itemsInCartCount: "getItemsCount",
     }),
-  }
+  },
 };
 </script>
 
@@ -78,7 +79,9 @@ export default {
   margin: 0.8rem;
 }
 .cart-container {
+  display: flex;
   position: relative;
+
 }
 .cart-icon {
   margin: 2rem 1rem;
@@ -88,7 +91,8 @@ export default {
   font-size: 1.5rem;
   background-color: transparent;
 }
-.cart-btn:hover, .cart-btn:focus {
+.cart-btn:hover,
+.cart-btn:focus {
   color: rgb(190, 190, 190);
   background-color: transparent;
 }
