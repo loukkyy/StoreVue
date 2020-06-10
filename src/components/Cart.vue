@@ -2,7 +2,7 @@
   <div>
     <transition name="component-fade" mode="out-in">
       <div v-if="!cartIsEmpty" key="cartNotEmpty">
-        <span class="totalPrice">Total {{ totalPrice }}€</span>
+        <h2 class="totalPrice">Total {{ totalPrice }}€</h2>
         <ul class="cart-list">
           <transition-group name="list">
             <li v-for="item in cartItems" :key="item.id" class="cart-item">
@@ -60,5 +60,6 @@ export default {
 }
 .totalPrice {
   font-size: 2rem;
+  text-align: right;
 }
 </style>
