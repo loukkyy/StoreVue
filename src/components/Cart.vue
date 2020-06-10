@@ -1,14 +1,15 @@
 <template>
   <div>
     <div v-if="!cartIsEmpty">
-      <span class="totalPrice">Total {{ totalPrice }}</span>
-      <ul v-for="item in cartItems" :key="item.id" class="item-list">
-        <li><CartItem :itemId="item.id" :itemQuantity="item.quantity" /></li>
+      <span class="totalPrice">Total {{ totalPrice }}€</span>
+      <ul class="cart-list">
+        <li v-for="item in cartItems" :key="item.id" class="cart-item">
+          <CartItem :itemId="item.id" :itemQuantity="item.quantity" />
+        </li>
       </ul>
     </div>
     <div v-else>
-      <p>Your cart is empty {{ cartIsEmpty }}</p>
-      <p>{{ cartItems }}</p>
+      <p>Your cart is empty</p>
     </div>
   </div>
 </template>
@@ -25,26 +26,33 @@ export default {
     ...mapGetters("cart", {
       cartItems: "getProducts",
     }),
+    ...mapGetters(["productById"]),
     cartIsEmpty() {
       return this.cartItems.length === 0;
     },
     totalPrice() {
-      return 100
+      let total = 0;
+      this.cartItems.forEach((item) => {
+        let product = this.productById(item.id);
+        total += product.price * item.quantity;
+        // current + next.price, 0
+      });
+      return total;
     },
   },
 };
 </script>
 
 <style scoped>
-.item-list,
-.empty-cart {
-  margin: 0.5rem;
+.cart-list {
+  min-width: 30vw;
 }
 .empty-cart {
   background-color: #42b983;
 }
-li {
+.cart-item {
   list-style: none;
+  margin: 0.5rem 0;
 }
 .totalPrice {
   font-size: 2rem;

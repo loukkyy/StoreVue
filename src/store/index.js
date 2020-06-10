@@ -13,10 +13,11 @@ export default new Vuex.Store({
     loadProducts: (state, products) => (state.products = products),
     decrementProductInventory: (state, productId) => {
       const product = state.products.find(p => p.id === productId);
-      console.log(product.qt);
       product.qt--;
-      console.log(state.products.find(p => p.id === productId).qt);
-      // (state.products.find(p => p.id === productId).qt--)
+    },
+    incrementProductInventory: (state, { id: productId, qt: quantity }) => {
+      const product = state.products.find(p => p.id === productId);
+      product.qt += quantity;
     }
   },
   actions: {

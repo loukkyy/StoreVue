@@ -9,13 +9,20 @@
 <script>
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
   components: {
     Header,
     Footer
-  }
+  },
+  methods: {
+    ...mapActions(['fetchAllProducts']),
+  },
+  created() {
+    this.fetchAllProducts();
+  },
 };
 </script>
 
@@ -58,7 +65,10 @@ export default {
   color: #eee;
   margin: 0.4rem;
 }
-.btn:hover, .btn:focus {
+.btn:focus {
+  background-color: transparent;
+}
+.btn:hover {
   border-color: hsl(198, 66%, 52%);
   color: hsl(198, 66%, 52%);
   background-color: #eee;

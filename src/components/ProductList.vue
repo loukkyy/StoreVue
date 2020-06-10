@@ -48,19 +48,12 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['fetchAllProducts']),
     ...mapActions("cart", {
         addToCart: "addProduct"
       })
   },
   computed: {
     ...mapGetters(['products'])
-
-  },
-  created() {
-    console.log("dispatch");
-    // this.$store.dispatch("fetchAllProducts");
-    this.fetchAllProducts();
   },
 };
 </script>

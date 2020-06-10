@@ -6,13 +6,10 @@
         <router-link to="/">Home</router-link>
         <router-link to="/products">Products</router-link>
       </div>
-      <!-- <router-link to="/cart"
-        class="cart-icon">
-          <img src="@/assets/cart_icon.svg" alt="cart-icon" />
-        </router-link> -->
         <div class="cart-container">
         <button @click="showCart = !showCart" class="btn cart-btn">
           <font-awesome-icon icon="shopping-cart" />
+          <span class="item-count-badge">{{ itemsInCartCount }}</span>
       </button>
       
       <Cart v-if="showCart" class="cart-pop-up"/>
@@ -40,7 +37,8 @@ export default {
   },
   computed: {
     ...mapGetters("cart", {
-      cartProducts: "getProducts"
+      cartProducts: "getProducts",
+      itemsInCartCount: "getItemsCount"
     }),
   }
 };
@@ -100,5 +98,8 @@ export default {
   top: 100px;
   z-index: 1;
   margin-right: 0.5rem;
+}
+.item-count-badge {
+  margin: 0.5rem;
 }
 </style>
