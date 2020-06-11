@@ -1,16 +1,30 @@
 <template>
   <div class="item-container">
-    <button class="btn btn-remove" @click="removeFromCart({item: product, quantity: itemQuantity})"><font-awesome-icon icon="times" /></button>
+    <button
+      class="btn btn-remove"
+      @click="removeFromCart({ item: product, quantity: itemQuantity })"
+    >
+      <font-awesome-icon icon="times" />
+    </button>
     <div class="image">
-        <img :src="itemById(itemId).image" alt="" />
+      <img :src="itemById(itemId).image" alt="" />
     </div>
     <p>{{ itemById(itemId).name }}</p>
     <div class="quantity-controls">
-      <button class="btn" @click="addToCart(product)" :disabled="!(product.qt > 0)">
+      <button
+        class="btn"
+        @click="addToCart(product)"
+        :disabled="!(product.qt > 0)"
+      >
         <font-awesome-icon icon="plus" />
       </button>
       <p>{{ itemQuantity }}</p>
-      <button class="btn" @click="removeFromCart({item: product, quantity: 1})"><font-awesome-icon icon="minus" /></button>
+      <button
+        class="btn"
+        @click="removeFromCart({ item: product, quantity: 1 })"
+      >
+        <font-awesome-icon icon="minus" />
+      </button>
     </div>
 
     <span>{{ totalPrice }}€</span>
@@ -35,7 +49,7 @@ export default {
       itemById: "productById",
     }),
     product() {
-        return this.itemById(this.itemId);
+      return this.itemById(this.itemId);
     },
     totalPrice() {
       return this.itemById(this.itemId).price * this.itemQuantity;
@@ -66,8 +80,8 @@ export default {
   margin: 0 0.5rem;
 }
 img {
-    max-width:100%;
-    max-height:100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 p {
 }

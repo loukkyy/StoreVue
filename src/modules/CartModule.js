@@ -17,7 +17,9 @@ export const CartModule = {
       if (cartProduct) {
         cartProduct.quantity -= quantity;
         if (cartProduct.quantity === 0) {
-          state.products.pop(item);
+          state.products = state.products.filter(
+            (item) => item.id !== cartProduct.id
+          );
         }
       }
     },
@@ -41,6 +43,7 @@ export const CartModule = {
   },
   getters: {
     getProducts: (state) => state.products,
-    getItemsCount: (state) => state.products.reduce((total, item) => total + item.quantity, 0),
+    getItemsCount: (state) =>
+      state.products.reduce((total, item) => total + item.quantity, 0),
   },
 };
